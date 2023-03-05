@@ -1,9 +1,12 @@
+import * as React from 'react'
 import { Navigation } from 'react-native-navigation'
-import App from './routes/App'
-import Second from './routes/Second'
 
-Navigation.registerComponent('Home', () => App)
-Navigation.registerComponent('Second', () => Second)
+Navigation.registerComponent('Home', () =>
+  React.lazy(() => import('./routes/App').then(x => x.default)),
+)
+Navigation.registerComponent('Second', () =>
+  React.lazy(() => import('./routes/Second').then(x => x.default)),
+)
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({

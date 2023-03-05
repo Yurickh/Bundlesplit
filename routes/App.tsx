@@ -23,6 +23,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen'
+import { commonCode } from './commonCode'
 
 const Section = ({ children, title }) => {
   const isDarkMode = useColorScheme() === 'dark'
@@ -56,6 +57,10 @@ const App = (props: { componentId: string }) => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   }
+
+  React.useEffect(() => {
+    console.log(commonCode('potato'))
+  })
 
   return (
     <SafeAreaView style={backgroundStyle}>

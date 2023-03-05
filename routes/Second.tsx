@@ -21,6 +21,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen'
+import { commonCode } from './commonCode'
 
 const Section = ({ children, title }) => {
   const isDarkMode = useColorScheme() === 'dark'
@@ -50,6 +51,10 @@ const Section = ({ children, title }) => {
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
+
+  React.useEffect(() => {
+    console.log(commonCode('solid'))
+  })
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,

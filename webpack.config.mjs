@@ -108,8 +108,11 @@ export default env => {
       clean: true,
       hashFunction: 'xxhash64',
       path: path.join(dirname, 'build/generated', platform),
-      filename: 'index.bundle',
-      chunkFilename: '[name].chunk.bundle',
+      filename: pathData =>
+        pathData.chunk.name === 'main'
+          ? 'index.bundle'
+          : 'bundle/[name].bundle',
+      chunkFilename: 'chunk/[name].chunk.bundle',
       publicPath: Repack.getPublicPath({ platform, devServer }),
     },
     /**
@@ -136,6 +139,9 @@ export default env => {
         }),
       ],
       chunkIds: 'named',
+      splitChunks: {
+        chunks: 'all',
+      },
     },
     module: {
       /**

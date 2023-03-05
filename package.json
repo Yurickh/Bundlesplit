@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "run:ios": "react-native run-ios --simulator 'iPhone 14'",
     "pack:start": "react-native webpack-start",
-    "pack:bundle": "react-native webpack-bundle --entry-point index.js"
+    "pack:bundle": "react-native webpack-bundle --entry-file index.js"
   },
   "dependencies": {
     "react": "18.0.0",
