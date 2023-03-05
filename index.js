@@ -18,7 +18,9 @@ ScriptManager.shared.addResolver(async (scriptId, caller) => {
   console.log('Resolving from remote server...')
 
   return {
-    url: Script.getRemoteURL(`TODO`),
+    url: Script.getRemoteURL(
+      `https://raw.githubusercontent.com/Yurickh/Bundlesplit/main/build/outputs/ios/remotes/chunk/${scriptId}`,
+    ),
   }
 })
 
