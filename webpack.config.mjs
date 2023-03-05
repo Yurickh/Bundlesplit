@@ -143,6 +143,9 @@ export default env => {
       },
     },
     module: {
+      // One of these could work to limit how much we need to build locally / allow for sparse checkouts
+      // excluded: [],
+      // noParse: content => /\/routes\//.test(content),
       /**
        * This rule will process all React Native related dependencies with Babel.
        * If you have a 3rd-party dependency that you need to transpile, you can add it to the
