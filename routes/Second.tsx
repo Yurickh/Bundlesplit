@@ -10,11 +10,9 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  TouchableHighlight,
   useColorScheme,
   View,
 } from 'react-native'
-import { Navigation } from 'react-native-navigation'
 
 import {
   Colors,
@@ -50,7 +48,7 @@ const Section = ({ children, title }) => {
   )
 }
 
-const App = (props: { componentId: string }) => {
+const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
 
   const backgroundStyle = {
@@ -68,19 +66,10 @@ const App = (props: { componentId: string }) => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <TouchableHighlight
-            style={styles.navigationButton}
-            onPress={() => {
-              Navigation.push(props.componentId, {
-                component: {
-                  name: 'Second',
-                },
-              })
-            }}>
-            <Text style={{ ...styles.sectionDescription, color: 'white' }}>
-              Go to screen 1
-            </Text>
-          </TouchableHighlight>
+          <Section title="Step One">
+            Edit <Text style={styles.highlight}>App.js</Text> to change this
+            screen and then come back to see your edits.
+          </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
@@ -98,17 +87,6 @@ const App = (props: { componentId: string }) => {
 }
 
 const styles = StyleSheet.create({
-  navigationButton: {
-    marginTop: 12,
-    marginHorizontal: 16,
-    padding: 8,
-    paddingBottom: 12,
-    backgroundColor: 'black',
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    color: 'white',
-  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
